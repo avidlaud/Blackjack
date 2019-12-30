@@ -13,6 +13,24 @@ class Hand {
         }
     }
 
+    Hand(){}
+
+    public String toString() {
+        boolean first = true;
+        String s = "";
+        for(Card card: cards) {
+            /*First card*/
+            if(first) {
+                s = s.concat(card.toString());
+                first = false;
+            }
+            else {
+                s = s.concat(", " + card.toString());
+            }
+        }
+        return s;
+    }
+
     public void addCard(Card card) {
         cards.add(card);
         if (values.size() == 0) {
@@ -31,13 +49,29 @@ class Hand {
         }
     }
 
+    /*
+     * Function: getValue
+     * Calculates the value of the hand
+     * returns: the value of the hand, or -1 if "bust"
+     */
     public int getValue() {
-        int maxValue = 0;
+        int maxValue = -1;
         for(int val: values) {
             if(val > maxValue && val <= 21) {
                 maxValue = val;
             }
         }
         return maxValue;
+    }
+
+    public Card getCard(int index) {
+        if(index < (cards.size())) {
+            return cards.get(index);
+        }
+        return null;
+    }
+
+    public int getSize() {
+        return cards.size();
     }
 }
