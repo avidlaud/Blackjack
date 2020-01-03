@@ -11,8 +11,8 @@ class Deck {
     private ArrayList<Card> deck = new ArrayList<Card>();
 
     Deck() {
-        for(int i = 0; i < (NUMBER_OF_SUITS - 1); i++) {
-            for(int j = 0; j < (NUMBER_OF_RANKS - 1); j++) {
+        for(int i = 0; i < (NUMBER_OF_SUITS); i++) {
+            for(int j = 0; j < (NUMBER_OF_RANKS); j++) {
                 deck.add(new Card(i, j));
             }
         }
