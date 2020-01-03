@@ -13,6 +13,11 @@ class Hand {
         }
     }
 
+    Hand(Deck deck) {
+        addCard(deck.draw());
+        addCard(deck.draw());
+    }
+
     Hand(){}
 
     public String toString() {
@@ -39,11 +44,11 @@ class Hand {
             int numValues = values.size();
             ArrayList<Integer> newValues = card.getValues();
             /*Iterate through the existing values*/
-            for (int i = 1; i < numValues; i++)  {
+            for (int i = 0; i < numValues; i++)  {
                 Integer temp = values.remove(0);
                 /*Iterate through the new card's values*/
-                for (int j = 0; j < (newValues.size() - 1); j++) {
-                    values.add(newValues.get(j) + temp);
+                for (int j = 0; j < (newValues.size()); j++) {
+                    values.add((newValues.get(j) + temp));
                 }
             }
         }
